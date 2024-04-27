@@ -8,6 +8,8 @@ import Home from "../Pages/Home";
 import AllSpot from "../Pages/AllSpot";
 import AddSpot from "../Pages/AddSpot";
 import Mylist from "../Pages/Mylist";
+import Login from "../Log&Reg/Login";
+import Register from "../Log&Reg/Register";
 
   const router = createBrowserRouter([
     {
@@ -33,7 +35,15 @@ import Mylist from "../Pages/Mylist";
                 path:'/mylist',
                 element:<Mylist></Mylist>
                    
-               }
+               },
+               {
+                path: '/login',
+                element: <Login></Login>
+            },
+            {
+                path: '/register',
+                element: <Register></Register>
+            }
         ]
         
     }
