@@ -1,15 +1,3 @@
-// import React from 'react';
-
-// const Register = () => {
-//     return (
-//         <div>
-//             resister
-//         </div>
-//     );
-// };
-
-// export default Register;
-
 import React, { useContext, useState } from 'react';
 import { FaEye,FaEyeSlash} from "react-icons/fa";
 
@@ -20,7 +8,6 @@ import { ToastContainer, toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
 import { Helmet } from 'react-helmet';
-import { updateProfile } from 'firebase/auth';
 const Register = () => {
     const [regError,setRegError]= useState('')
     const [regS,setRegS]= useState('')
