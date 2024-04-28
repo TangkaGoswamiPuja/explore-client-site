@@ -10,6 +10,7 @@ import AddSpot from "../Pages/AddSpot";
 import Mylist from "../Pages/Mylist";
 import Login from "../Log&Reg/Login";
 import Register from "../Log&Reg/Register";
+import Viewdetails from "../Pages/Viewdetails";
 
   const router = createBrowserRouter([
     {
@@ -26,6 +27,11 @@ import Register from "../Log&Reg/Register";
              element: <AllSpot></AllSpot>,
              loader: ()=>fetch('http://localhost:5000/travel')
                 
+            },
+            {
+                path: '/details/:_id',
+                element:  <Viewdetails></Viewdetails>,
+                loader: ()=>fetch('http://localhost:5000/travel')
             },
             {
                 path:'/add',
