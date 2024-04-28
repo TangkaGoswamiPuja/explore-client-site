@@ -5,8 +5,26 @@ const AddSpot = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = (data) => {
-        console.log(data); // For demonstration, log the form data
-        // You can send this data to your server using fetch or any other method
+        console.log(data); 
+
+
+        // server
+        fetch("http://localhost:5000/travel",{
+  method:"POST",
+  headers: {
+    "content-type":"application/json"
+  },
+  body: JSON.stringify(data)
+})
+.then(res=>res.json())
+.then(data=>{
+  console.log(data);
+//   if(data.insertedId){
+//     alert("users added done")
+//     form.reset()
+//   }
+})
+
     };
     return (
         <div>
@@ -32,7 +50,17 @@ const AddSpot = () => {
 
                                     <div>
                                         <label htmlFor="country_name">Country Name:</label><br />
-                                        <input className="input input-bordered input-secondary w-full max-w-xs" type="text" id="country_name" {...register("country_name", { required: true })} /></div>
+                                        {/* <input className="input input-bordered input-secondary w-full max-w-xs" type="text" id="country_name" {...register("country_name", { required: true })} /> */}
+                                        <select className="select select-secondary w-full max-w-xs" {...register("country_name", { required: true })}>
+  <option disabled selected>Pick your favorite language</option>
+  <option>Bangladesh</option>
+  <option>Thailand</option>
+  <option>Indonesia</option>
+  <option>Malaysia</option>
+  <option>Vietnam</option>
+  <option>Cambodia</option>
+ 
+</select></div>
 
 
                                     <div>
@@ -63,9 +91,9 @@ const AddSpot = () => {
 
                                     </div>
                                     
-                                    <div> {errors && <p>Please fill out all required fields.</p>}</div>
+                                    
 
-                                    <div> <button className='btn btn-secondary' type="submit">Add</button></div>
+                                    <div className='mt-3'> <button className='btn btn-secondary' type="submit">Add</button></div>
 
                               
 
