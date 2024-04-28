@@ -1,12 +1,13 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import Swal from 'sweetalert2'
 
 const AddSpot = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors },reset } = useForm();
 
     const onSubmit = (data) => {
         console.log(data); 
-
+       
 
         // server
         fetch("http://localhost:5000/travel",{
@@ -19,10 +20,15 @@ const AddSpot = () => {
 .then(res=>res.json())
 .then(data=>{
   console.log(data);
-//   if(data.insertedId){
-//     alert("users added done")
-//     form.reset()
-//   }
+  if(data.insertedId){
+    Swal.fire({
+        title: 'Success!',
+        text: 'You Added A Place',
+        icon: 'success',
+        confirmButtonText: 'Done'
+      })
+      reset();
+  }
 })
 
     };
@@ -51,8 +57,8 @@ const AddSpot = () => {
                                     <div>
                                         <label htmlFor="country_name">Country Name:</label><br />
                                         {/* <input className="input input-bordered input-secondary w-full max-w-xs" type="text" id="country_name" {...register("country_name", { required: true })} /> */}
-                                        <select className="select select-secondary w-full max-w-xs" {...register("country_name", { required: true })}>
-  <option disabled selected>Pick your favorite language</option>
+                                        <select className="select select-secondary w-full max-w-xs" id="country_name" {...register("country_name", { required: true })}>
+  <option disabled selected>Pick a country</option>
   <option>Bangladesh</option>
   <option>Thailand</option>
   <option>Indonesia</option>

@@ -23,7 +23,8 @@ import Register from "../Log&Reg/Register";
             },
             {
              path:'/all',
-             element: <AllSpot></AllSpot>
+             element: <AllSpot></AllSpot>,
+             loader: ()=>fetch('http://localhost:5000/travel')
                 
             },
             {
