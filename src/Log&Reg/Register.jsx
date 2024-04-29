@@ -25,6 +25,22 @@ const Register = () => {
     .then(result =>{
         console.log(result.user)
         toast("Registration successful !")
+        const user = {email}
+        fetch("http://localhost:5000/user",{
+  method:"POST",
+  headers: {
+    "content-type":"application/json"
+  },
+  body: JSON.stringify(user)
+})
+.then(res=>res.json())
+.then(data=>{
+  console.log(data);
+//   if(data.insertedId){
+//     alert("users added done")
+//     form.reset()
+//   }
+})
  })
     .catch(error=>{console.error(error)
         setRegError(error.message)

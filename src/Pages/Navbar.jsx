@@ -31,8 +31,8 @@ const Navbar = () => {
 
   </>
   return (
-    <div className="ml-5 mr-5 mt-10 p-2" >
-      <div className="navbar bg-cyan-200 rounded-xl ">
+    <div className="" >
+      <div className="navbar bg-orange-200  ">
         <div className="navbar-start">
           <div className="dropdown dropdown-hover">
             <div tabIndex={0} role="button" className="btn btn-ghost  lg:hidden">
@@ -66,12 +66,12 @@ const Navbar = () => {
 
               </div>
               <button onClick={handleSignout} className="btn btn-outline btn-info">SignOut</button></>
-            : <Link to="/login" className="btn btn-outline btn-info">Login</Link>
+            : <><Link to="/login" className="btn btn-outline btn-info">Login</Link>
+             <Link to="/register" className="btn btn-outline btn-info">Register</Link></>
           }
 
         </div>
-         {/* <Link to="/login" className="btn btn-outline btn-info">Login</Link>
-         <Link to="/register" className="btn btn-outline btn-info">resi</Link> */}
+       
       </div>
     </div>
   );

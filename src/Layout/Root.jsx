@@ -5,10 +5,10 @@ import Footer from "../Pages/Footer";
 const Root = () => {
     return (
         <div>
-            <div >
-                <Navbar ></Navbar>
-                <Outlet></Outlet>
-            </div>
+            <Navbar ></Navbar>
+
+        <Outlet></Outlet>
+           
             <Footer></Footer>
         </div>
        

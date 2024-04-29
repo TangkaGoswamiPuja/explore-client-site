@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../AuthFile/Auth';
 import { Helmet } from 'react-helmet';
+import Swal from 'sweetalert2'
 
 const Login = () => {
     const [logError, setLog] = useState("")
@@ -21,7 +22,12 @@ const Login = () => {
         signIn(data.email, data.password)
             .then(result => {
                 console.log(result.user)
-                alert("logged in successfully")
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Login Successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Done'
+                  })
 
 
 
@@ -39,7 +45,12 @@ const Login = () => {
         signInGoogle()
             .then(result => {
                 console.log(result.user)
-                alert("logged in successfully")
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Login Successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Done'
+                  })
 
                 navi(location?.state ? location.state : '/')
             })
@@ -51,7 +62,12 @@ const Login = () => {
         gitHub()
             .then(result => {
                 console.log(result.user)
-                alert("logged in successfully")
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Login Successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Done'
+                  })
 
                 navi(location?.state ? location.state : '/')
             })
