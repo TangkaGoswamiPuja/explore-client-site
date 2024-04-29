@@ -66,8 +66,8 @@ const Navbar = () => {
 
               </div>
               <button onClick={handleSignout} className="btn btn-outline btn-info">SignOut</button></>
-            : <><Link to="/login" className="btn btn-outline btn-info">Login</Link>
-             <Link to="/register" className="btn btn-outline btn-info">Register</Link></>
+            : <><Link to="/login" className="btn btn-outline btn-error">Login</Link>
+             <Link to="/register" className="btn btn-outline btn-error">Register</Link></>
           }
 
         </div>
