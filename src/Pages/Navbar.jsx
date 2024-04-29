@@ -20,7 +20,7 @@ const Navbar = () => {
       <> <li><NavLink to='/update'>Update Profile</NavLink></li>
         <li><NavLink to='/user'>user profile</NavLink></li></>
     } */}
-    <li><NavLink to='/all'>All Tourists Spot,
+    <li><NavLink to='/all'>All Tourists Spot
 </NavLink></li>
     <li><NavLink to="/add">Add Tourists Spot</NavLink></li>
     <li><NavLink to="/mylist">My list</NavLink></li>
