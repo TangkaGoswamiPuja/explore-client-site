@@ -2,6 +2,9 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useContext } from "react";
 import { AuthContext } from "../AuthFile/Auth";
+import 'react-tooltip/dist/react-tooltip.css'
+import { Tooltip } from 'react-tooltip';
+
 
 
 const Navbar = () => {
@@ -56,16 +59,15 @@ const Navbar = () => {
 
           {user ?
             <>
-              <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar dropdown dropdown-hover">
-
-                <div className="w-10 rounded-full">
-                  <img alt="" src={user.photoURL} /> </div>
-                <ul className="dropdown-content p-2 mt-2 border ">
-                  <li className="mr-10">{user.email}</li>
-                </ul>
-
-              </div>
-              <button onClick={handleSignout} className="btn btn-outline btn-info">SignOut</button></>
+             
+              <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar my-anchor-element ">
+              <div className="w-10 rounded-full">
+            <img alt="" src={user.photoURL} /> 
+                  </div></div>
+                  <Tooltip  anchorSelect=".my-anchor-element" place="top">  
+                   {user?.email} </Tooltip>
+           
+              <button onClick={handleSignout} className="btn btn-outline btn-error">SignOut</button></>
             : <><Link to="/login" className="btn btn-outline btn-error">Login</Link>
              <Link to="/register" className="btn btn-outline btn-error">Register</Link></>
           }

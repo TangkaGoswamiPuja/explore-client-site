@@ -10,6 +10,7 @@ import Mylist from "../Pages/Mylist";
 import Login from "../Log&Reg/Login";
 import Register from "../Log&Reg/Register";
 import Viewdetails from "../Pages/Viewdetails";
+import Tourists from "../Pages/HomeElement/Tourists";
 
   const router = createBrowserRouter([
     {
@@ -19,7 +20,12 @@ import Viewdetails from "../Pages/Viewdetails";
         children: [
             {
                 path: '/',
-                element: <Home></Home>
+                element: <Home></Home>,
+                children:[
+                  {  path:'/best',
+                    element: <Tourists></Tourists>,
+                    loader: ()=>fetch('http://localhost:5000/tour'  )}
+                ]
             },
             {
              path:'/all',
@@ -39,7 +45,9 @@ import Viewdetails from "../Pages/Viewdetails";
                },
                {
                 path:'/mylist',
-                element:<Mylist></Mylist>
+                element:<Mylist></Mylist>,
+                loader:()=>fetch('http://localhost:5000/user')
+
                    
                },
                {

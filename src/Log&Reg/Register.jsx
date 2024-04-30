@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../AuthFile/Auth';
 import { ToastContainer, toast } from 'react-toastify';
+import Swal from 'sweetalert2'
 
 import 'react-toastify/dist/ReactToastify.css';
 import { Helmet } from 'react-helmet';
@@ -15,7 +16,7 @@ const Register = () => {
     
    const {createUser}= useContext(AuthContext)
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors },reset } = useForm();
     const on2Submit = data => {console.log(data);
     console.log(errors);
   
@@ -25,7 +26,9 @@ const Register = () => {
     .then(result =>{
         console.log(result.user)
         toast("Registration successful !")
-        const user = {email}
+        const time = result.user.metadata?.
+            creationTime
+        const user = {email:data.email,time:time}
         fetch("http://localhost:5000/user",{
   method:"POST",
   headers: {
@@ -36,10 +39,15 @@ const Register = () => {
 .then(res=>res.json())
 .then(data=>{
   console.log(data);
-//   if(data.insertedId){
-//     alert("users added done")
-//     form.reset()
-//   }
+  if(data.insertedId){
+    Swal.fire({
+        title: 'Success!',
+        text: 'Added in the Database  Successfully',
+        icon: 'success',
+        confirmButtonText: 'Done'
+      })
+    reset();
+  }
 })
  })
     .catch(error=>{console.error(error)
