@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useLoaderData } from "react-router-dom";
-import Tcard from "./Tcard";
+import { Link } from "react-router-dom";
 
 const Tourists = () => {
     const [tour, setTour] = useState([]);
@@ -25,11 +24,7 @@ const Tourists = () => {
     </div>
   </div>
 
-           {/* <div>
-           {tour.map(to=>(<Tcard key={to._id}
-            to={to}>
-           </Tcard>))}
-           </div> */}
+          
 
 <div className="ml-20 mb-5 grid grid-cols-1 gap:3 lg:grid-cols-3 grid-rows-2 ml-7 ">
            {tour.map(to=>
@@ -42,7 +37,7 @@ image} alt="" /></figure>
     <p >{to.
 short_description}</p>
     <div className="card-actions justify-end">
-    <Link to={"/details"}> <button className="btn btn-error btn-outline">View Details</button></Link>
+    <Link to={"/no"}> <button className="btn btn-error btn-outline">View Details</button></Link>
     </div>
   </div>
 </div>)}
