@@ -87,20 +87,20 @@ const Login = () => {
 
                 <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body">
-                        <h2 className='text-3xl font-bold bg-cyan-100 rounded-lg p-3'>Please Login</h2>
+                        <h2 className='text-3xl font-bold bg-orange-200 rounded-lg p-3'>Please Login</h2>
                         <div className="form-control">
 
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="email" placeholder="email" name="email" className="input input-bordered" required {...register("email")} />
+                            <input type="email" placeholder="email" name="email" className="input input-bordered input-error" required {...register("email")} />
 
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" placeholder="password" name="password" className="input input-bordered" {...register("password", {
+                            <input type="password" placeholder="password" name="password" className="input input-bordered input-error" {...register("password", {
                                 required: {
                                     value: true,
                                     message: "You must fill this input"
@@ -118,15 +118,15 @@ const Login = () => {
 
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn btn-info btn-outline">Login</button>
+                            <button className="btn btn-error btn-outline">Login</button>
                         </div>
                     </form>
                     {
                         logError &&
                         <p className='p-5 text-red-600'>{logError}</p>}
-                    <p className="text-center mb-5">don't have a account? <Link className='link text-cyan-400' to="/register">plz register</Link></p>
-                    <p className="text-center mb-5"><button onClick={handelGulu} className='btn btn-info btn-outline'>sign with GOOGLE</button></p>
-                    <p className="text-center mb-5"><button onClick={handelGit} className='btn btn-info btn-outline'>sign with GitHub</button></p>
+                    <p className="text-center mb-5">don't have a account? <Link className='link text-orange-600' to="/register">plz register</Link></p>
+                    <p className="text-center mb-5"><button onClick={handelGulu} className='btn btn-error btn-outline'>sign with GOOGLE</button></p>
+                    <p className="text-center mb-5"><button onClick={handelGit} className='btn btn-error btn-outline'>sign with GitHub</button></p>
 
                 </div>
 

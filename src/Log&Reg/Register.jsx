@@ -56,13 +56,13 @@ const Register = () => {
 
 <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
 <form onSubmit={handleSubmit(on2Submit)} className="card-body">
-        <h2  className='text-3xl font-bold bg-cyan-100 rounded-lg p-3'>Register Please</h2>
+        <h2  className='text-3xl font-bold bg-orange-100 rounded-lg p-3'>Register Please</h2>
         <div className="form-control">
 
             <label className="label">
                 <span className="label-text">Name</span>
             </label>
-            <input type="text" placeholder="name" name="names" className="input input-bordered"  {...register("names",{
+            <input type="text" placeholder="name" name="names" className="input input-bordered input-error"  {...register("names",{
                 required: {
                    value: true,
             message: "You must fill this input"}})} />
@@ -73,7 +73,7 @@ const Register = () => {
             <label className="label">
                 <span className="label-text">Photo url </span>
             </label>
-            <input type="text" placeholder="photo url" name="photo" className="input input-bordered"  {...register("photo",{
+            <input type="text" placeholder="photo url" name="photo" className="input input-bordered input-error"  {...register("photo",{
                 required: {
                    value: true,
             message: "You must fill this input"}})} />
@@ -84,7 +84,7 @@ const Register = () => {
             <label className="label">
                 <span className="label-text">Email</span>
             </label>
-            <input type="email" placeholder="email" name="email" className="input input-bordered" required 
+            <input type="email" placeholder="email" name="email" className="input input-bordered input-error" required 
             {...register("email")}/>
         </div>
 
@@ -98,7 +98,7 @@ const Register = () => {
             <input 
             type= {show ? "text":"password"} placeholder="password" 
             name="password" 
-            className="input input-bordered" 
+            className="input input-bordered input-error" 
             {...register("password",{
                 required: {
                    value: true,
@@ -124,7 +124,7 @@ const Register = () => {
            
         </div>
         <div className="form-control mt-6">
-            <button className="btn btn-info btn-outline">Register</button>
+            <button className="btn btn-error btn-outline">Register</button>
         </div>
     </form>
     {
@@ -133,7 +133,7 @@ const Register = () => {
     {/* {
         regS && <p>{regS}</p>
     } */}
-    <p className="text-center mb-5">Already have a account? <Link className='link text-cyan-400' to="/login">plz login</Link></p>
+    <p className="text-center mb-5">Already have a account? <Link className='link text-orange-500' to="/login">plz login</Link></p>
 </div>
 </div>
 <ToastContainer />
