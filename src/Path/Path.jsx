@@ -25,9 +25,9 @@ import Private from "../AuthFile/Private";
                
             },
             
-                {  path:'/best',
-                  element: <Tourists></Tourists>,
-                  loader: ()=>fetch('http://localhost:5000/tour')},
+                // {  path:'/best',
+                //   element: <Tourists></Tourists>,
+                //   loader: ()=>fetch('http://localhost:5000/tour')},
               
             {
              path:'/all',

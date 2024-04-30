@@ -1,10 +1,20 @@
+import { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import Tcard from "./Tcard";
 
 const Tourists = () => {
-  
-const tour = useLoaderData();
-// const {_id}=tour;
-// console.log(_id)
+    const [tour, setTour] = useState([]);
+    useEffect(() => {
+        fetch("http://localhost:5000/tour")
+          .then(res => res.json())
+          .then(data => {
+            setTour(data);
+          })
+          .catch(error => {
+            console.error(error);
+          });
+      }, []);
+
     return (
         <div>
    <div className="hero-content text-center ml-10">
@@ -15,18 +25,30 @@ const tour = useLoaderData();
     </div>
   </div>
 
+           {/* <div>
+           {tour.map(to=>(<Tcard key={to._id}
+            to={to}>
+           </Tcard>))}
+           </div> */}
 
-            
-         <div className="card card-compact w-96 bg-base-100 shadow-xl">
-  <figure><img src="https://i.ibb.co/WfW8ZCF/pexels-pixabay-531602.jpg" alt="" /></figure>
-  <div className="card-body">
-    <h2 className="card-title"> Bokor National Park</h2>
-    <p>Kampot Province, Cambodia</p>
+<div className="ml-20 mb-5 grid grid-cols-1 gap:3 lg:grid-cols-3 grid-rows-2 ml-7 ">
+           {tour.map(to=>
+           <div className="card card-compact w-96 bg-base-100 shadow-xl">
+  <figure><img className="h-96 w-69 p-5" src={to.
+image} alt="" /></figure>
+  <div className="card-body p-2">
+    <h2 className="card-title text-2xl"> {to.tourists_spot_name}</h2>
+    <p className="text-xl">{to.country_name}</p>
+    <p >{to.
+short_description}</p>
     <div className="card-actions justify-end">
     <Link to={"/details"}> <button className="btn btn-error btn-outline">View Details</button></Link>
     </div>
   </div>
-</div>
+</div>)}
+           </div>
+            
+        
         </div>
     );
 };
