@@ -1,4 +1,5 @@
 import React from 'react';
+import { Fade } from "react-awesome-reveal";
 
 const Asking = () => {
     return (
@@ -6,7 +7,7 @@ const Asking = () => {
             <div className="hero min-h-screen  ">
   <div className="hero-content flex-col lg:flex-row">
     <div className="text-center lg:text-left">
-       <h1 className="text-5xl font-bold"> <span className='text-orange-500'>Any Question?</span> Feel Free to Contact</h1>
+     <Fade>  <h1 className="text-5xl font-bold"> <span className='text-orange-500'>Any Question?</span> Feel Free to Contact</h1></Fade>
  <img className=" w-96 lg:ml-20" src="https://i.ibb.co/c6LkQ1V/Animation-1714432012274.gif" alt="" />
 
     </div>

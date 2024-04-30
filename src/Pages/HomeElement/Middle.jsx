@@ -1,5 +1,6 @@
 import React from 'react';
 import { GiCheckMark } from "react-icons/gi";
+import { Fade } from "react-awesome-reveal";
 
 const Middle = () => {
     return (
@@ -8,8 +9,8 @@ const Middle = () => {
   <div className="hero-content flex-col lg:flex-row-reverse">
     <img src="https://i.ibb.co/Scc8mgH/pexels-element5-1051072.jpg" className="max-w-sm rounded-lg shadow-2xl" />
     <div>
-      <h1 className="text-6xl font-bold">We’re  <span className='text-orange-500'>Travel</span> <br></br> 
-      Agency</h1>
+    <Fade> <h1 className="text-6xl font-bold">We’re  <span className='text-orange-500'>Travel</span> <br></br> 
+      Agency</h1></Fade>
       <p className="p-5 text-2xl">
         <ol>
             <li><GiCheckMark />

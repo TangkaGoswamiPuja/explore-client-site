@@ -19,14 +19,12 @@ const Navbar = () => {
 
     const links = <>
     <li  ><NavLink to="/">Home</NavLink></li>
-    {/* {user &&
-      <> <li><NavLink to='/update'>Update Profile</NavLink></li>
-        <li><NavLink to='/user'>user profile</NavLink></li></>
-    } */}
     <li><NavLink to='/all'>All Tourists Spot
 </NavLink></li>
-    <li><NavLink to="/add">Add Tourists Spot</NavLink></li>
-    <li><NavLink to="/mylist">My list</NavLink></li>
+     {user &&
+      <>  <li><NavLink to="/add">Add Tourists Spot</NavLink></li>
+      <li><NavLink to="/mylist">My list</NavLink></li></>
+    } 
     <li><NavLink to="/no">More</NavLink></li>
 
 

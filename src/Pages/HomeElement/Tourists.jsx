@@ -1,12 +1,22 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const Tourists = () => {
   
 const tour = useLoaderData();
-console.log(tour)
+// const {_id}=tour;
+// console.log(_id)
     return (
         <div>
-         tourrrr:{tour}
+         <div className="card card-compact w-96 bg-base-100 shadow-xl">
+  <figure><img src="https://i.ibb.co/WfW8ZCF/pexels-pixabay-531602.jpg" alt="" /></figure>
+  <div className="card-body">
+    <h2 className="card-title"> Bokor National Park</h2>
+    <p>Kampot Province, Cambodia</p>
+    <div className="card-actions justify-end">
+    <Link to={"/details"}> <button className="btn btn-error btn-outline">View Details</button></Link>
+    </div>
+  </div>
+</div>
         </div>
     );
 };

@@ -11,6 +11,7 @@ import Login from "../Log&Reg/Login";
 import Register from "../Log&Reg/Register";
 import Viewdetails from "../Pages/Viewdetails";
 import Tourists from "../Pages/HomeElement/Tourists";
+import Private from "../AuthFile/Private";
 
   const router = createBrowserRouter([
     {
@@ -21,12 +22,13 @@ import Tourists from "../Pages/HomeElement/Tourists";
             {
                 path: '/',
                 element: <Home></Home>,
-                children:[
-                  {  path:'/best',
-                    element: <Tourists></Tourists>,
-                    loader: ()=>fetch('http://localhost:5000/tour'  )}
-                ]
+               
             },
+            
+                {  path:'/best',
+                  element: <Tourists></Tourists>,
+                  loader: ()=>fetch('http://localhost:5000/tour')},
+              
             {
              path:'/all',
              element: <AllSpot></AllSpot>,
@@ -35,17 +37,17 @@ import Tourists from "../Pages/HomeElement/Tourists";
             },
             {
                 path: '/details/:_id',
-                element:  <Viewdetails></Viewdetails>,
+                element: <Private> <Viewdetails></Viewdetails></Private>,
                 loader: ()=>fetch('http://localhost:5000/travel')
             },
             {
                 path:'/add',
-                element:<AddSpot></AddSpot>
+                element: <Private><AddSpot></AddSpot> </Private>
                    
                },
                {
                 path:'/mylist',
-                element:<Mylist></Mylist>,
+                element: <Private><Mylist></Mylist></Private>,
                 loader:()=>fetch('http://localhost:5000/user')
 
                    
