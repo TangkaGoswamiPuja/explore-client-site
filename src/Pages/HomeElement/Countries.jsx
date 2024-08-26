@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 const Countries = () => {
     const [country, setCountry] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:5000/country")
+        fetch("https://server-site-zeta-ten.vercel.app/country")
           .then(res => res.json())
           .then(data => {
             setCountry(data);

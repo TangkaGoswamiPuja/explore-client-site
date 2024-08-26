@@ -12,6 +12,7 @@ import Register from "../Log&Reg/Register";
 import Viewdetails from "../Pages/Viewdetails";
 import Tourists from "../Pages/HomeElement/Tourists";
 import Private from "../AuthFile/Private";
+import Update from "../Pages/Update";
 
   const router = createBrowserRouter([
     {
@@ -30,13 +31,13 @@ import Private from "../AuthFile/Private";
             {
              path:'/all',
              element: <AllSpot></AllSpot>,
-             loader: ()=>fetch('http://localhost:5000/travel')
+             loader: ()=>fetch('https://server-site-zeta-ten.vercel.app/travel')
                 
             },
             {
                 path: '/details/:_id',
                 element: <Private> <Viewdetails></Viewdetails></Private>,
-                loader: ()=>fetch('http://localhost:5000/travel')
+                loader: ()=>fetch('https://server-site-zeta-ten.vercel.app/travel')
             },
             {
                 path:'/add',
@@ -46,10 +47,16 @@ import Private from "../AuthFile/Private";
                {
                 path:'/mylist',
                 element: <Private><Mylist></Mylist></Private>,
-                loader:()=>fetch('http://localhost:5000/user')
+                loader:()=>fetch('https://server-site-zeta-ten.vercel.app/travel')
 
                    
                },
+               {
+                path: '/updatelist/:id',
+                 element : <Private><Update></Update></Private>,
+            loader: ({params})=>fetch(`https://server-site-zeta-ten.vercel.app/travel/${params.id}`)
+                 },
+               
                {
                 path: '/login',
                 element: <Login></Login>

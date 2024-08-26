@@ -10,7 +10,7 @@ const AddSpot = () => {
 
 
         // server
-        fetch("http://localhost:5000/travel", {
+        fetch("https://server-site-zeta-ten.vercel.app/travel", {
             method: "POST",
             headers: {
                 "content-type": "application/json"

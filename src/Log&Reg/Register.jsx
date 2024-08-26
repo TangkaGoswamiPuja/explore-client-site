@@ -29,7 +29,7 @@ const Register = () => {
         const time = result.user.metadata?.
             creationTime
         const user = {email:data.email,time:time}
-        fetch("http://localhost:5000/user",{
+        fetch("https://server-site-zeta-ten.vercel.app/user",{
   method:"POST",
   headers: {
     "content-type":"application/json"
