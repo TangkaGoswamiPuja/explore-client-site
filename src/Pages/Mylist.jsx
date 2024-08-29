@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../AuthFile/Auth';
 
 const Mylist = () => {
-
+  const {user} = useContext(AuthContext)
+console.log(user);
     const loadData = useLoaderData();
     // console.log(loadData);
 
@@ -11,19 +13,16 @@ const Mylist = () => {
   //   const [applyEmail, setMyEmail] = useState([]);
   // const [filteredList, setFilteredList] = useState([]);
 
-    const [selectList , setList]=useState(loadData);
+    const [selectList , setList]=useState([]);
 
-
-    // const url = `https://job-portal-server-site-kappa.vercel.app/apply?email=${user?.email}`
-    // useEffect(() => {
-    //   fetch(url)
-    //     .then(res => res.json())
-    //     .then(data => {
-    //       setMyEmail(data);
-    //       setFilteredList(data);
-  
-    //     });
-    // }, [url]);
+console.log(selectList);
+    const url =`https://server-site-zeta-ten.vercel.app/travel?email=${user?.email}`
+    useEffect(()=>{
+        fetch(url)
+        .then(res => res.json())
+        .then(data => 
+          setList(data));
+    },[user?.email])
 
     const handelDelete = _id =>{
        console.log(_id)
@@ -52,8 +51,8 @@ const Mylist = () => {
                           'Your file has been deleted.',
                           'success'
                       )
-                    const remaining =  selectList.filter(li=>li._id !== loadData._id);
-
+                    const remaining =  selectList.filter(li=>li._id !== _id);
+console.log(remaining);
                     setList(remaining);
                   }
               })
@@ -65,7 +64,7 @@ const Mylist = () => {
   };
     return (
         <div>
-           <h2>my list{loadData.length}</h2>
+           <h2>my list{ selectList.length}</h2>
            <div className="overflow-x-auto">
   <table className="table">
     {/* head */}
@@ -86,7 +85,7 @@ const Mylist = () => {
     </thead>
     <tbody>
       {/* row 1 */}
-      {loadData.map(list=> <tr key={list._id}>
+      {selectList.map(list=> <tr key={list._id}>
         <th><button onClick={()=>handelDelete(list._id)} className="btn btn-square btn-xs">
   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
 </button></th>
